@@ -1,5 +1,8 @@
 pipeline{
     agent{label "master-node"}
+       environment {
+        SSH_KEY = credentials('master-id')  // Replace with your credential ID
+    }
 
     stages{
         stage("Create kefky file"){
