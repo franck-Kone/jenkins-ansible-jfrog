@@ -18,6 +18,13 @@ pipeline{
                 sh "mv /home/ec2-user/workspace/ansible-config/* ~/ansible-dev/playbooks"
             }
         }
+        stage("store package to Jfrog artifactory") {
+            steps{
+                sh "pwd"
+                sh "curl -uadmin:AP4MQkwR3eUWrqYm1ygYJ5kVtyE -T ~/ansible-dev/playbooks "http://100.26.153.138:8081/artifactory/ansible-jenkins-jfrog/test1.jar""
+            }
+        }
+        
         stage("ping nodes") {
             steps{
                 sh "cd ~/ansible-dev && ansible all -m ping"
