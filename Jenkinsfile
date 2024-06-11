@@ -5,15 +5,15 @@ pipeline{
     }
 
     stages{
-        stage("Create workspace in master node"){
-              steps{
+        // stage("Create workspace in master node"){
+        //       steps{
                 
-                  sh "sudo mkdir /var/lib/jenkins && sudo mkdir /var/lib/jenkins/workspace"
-              }
-        }
+        //           sh "sudo mkdir /var/lib/jenkins && sudo mkdir /var/lib/jenkins/workspace"
+        //       }
+        // }
         stage("Copy files to ansible-dev") {
             steps{
-                sh "cp -r /var/lib/jenkins/workspace/ansible-config/* ~/ansible-dev/playbooks"
+                sh "sudo cp -r /var/lib/jenkins/workspace/ansible-config/* ~/ansible-dev/playbooks"
             }
         }
         stage("ping nodes") {
