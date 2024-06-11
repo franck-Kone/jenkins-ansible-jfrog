@@ -15,7 +15,7 @@ pipeline{
         stage("Copy files to ansible-dev") {
             steps{
                 sh "pwd"
-                sh "cp -r workspace/ansible-config/ ~/ansible-dev/playbooks"
+                sh "cp -r /home/ec2-user/workspace/ansible-config/ ~/ansible-dev/playbooks"
             }
         }
         stage("ping nodes") {
