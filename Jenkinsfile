@@ -15,7 +15,6 @@ pipeline{
         stage("Copy files to ansible-dev") {
             steps{
                 sh "pwd"
-                sh "rm -rf ~/ansible-dev/playbooks/*"
                 sh "mv /home/ec2-user/workspace/ansible-config/* ~/ansible-dev/playbooks"
             }
         }
