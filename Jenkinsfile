@@ -14,6 +14,7 @@ pipeline{
         // }
         stage("Copy files to ansible-dev") {
             steps{
+                sh "pwd"
                 sh "sudo cp -r /var/lib/jenkins/workspace/ansible-config/* ~/ansible-dev/playbooks"
             }
         }
