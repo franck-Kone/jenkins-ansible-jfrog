@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage("Create kefky file"){
               steps{
-                  sh "mkdir ~/franckFile"
+                  sh "echo 'that is it'"
               }
         }
         stage("Copy files from github to master-node") {
