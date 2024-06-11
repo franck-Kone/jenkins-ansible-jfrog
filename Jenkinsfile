@@ -7,8 +7,8 @@ pipeline{
     stages{
         stage("Create workspace in master node"){
               steps{
-                  sh "sudo -i"
-                  sh "mkdir /var/lib/jenkins && mkdir /var/lib/jenkins/workspace"
+                
+                  sh "sudo mkdir /var/lib/jenkins && sudo mkdir /var/lib/jenkins/workspace"
               }
         }
         stage("Copy files to ansible-dev") {
