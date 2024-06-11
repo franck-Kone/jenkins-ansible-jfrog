@@ -7,6 +7,7 @@ pipeline{
     stages{
         stage("Create workspace in master node"){
               steps{
+                  sh "sudo -i"
                   sh "mkdir /var/lib/jenkins && mkdir /var/lib/jenkins/workspace"
               }
         }
