@@ -25,7 +25,7 @@ pipeline{
         }
         stage("Run playbook") {
             steps{
-                sh "cd ~/ansible-dev && ansible-playbook ~/ansible-dev/plabooks/ansible-config/play5.yml"
+                sh "cd ~/ansible-dev && ansible-playbook ~/ansible-dev/plabooks/play5.yml"
             }
         }
     }
