@@ -5,15 +5,25 @@ pipeline{
     }
 
     stages{
-        stage("Create kefky file"){
+        stage("Create workspace in master node"){
               steps{
-                  sh "echo 'that is it'"
+                  sh "mkdir /var/lib/jenkins/workspace"
               }
         }
-        // stage("Copy files from github to master-node") {
-        //     steps{
-        //         sh "scp -r ~/workspace/ansible-config/* ec2-user@35.168.13.238:/home/ec2-user/franckFile"
-        //     }
-        // }
+        stage("Copy files to ansible-dev") {
+            steps{
+                sh "cp -r /var/lib/jenkins/workspace/ansible-config/* ~/ansible-dev/playbooks"
+            }
+        }
+        stage("ping nodes") {
+            steps{
+                sh "cd ~/ansible-dev && ansible all -m ping"
+            }
+        }
+        stage("Run playbook") {
+            steps{
+                sh "cd ~/ansible-dev && ansible-playbook ~/ansible-dev/plabooks/play5.yml"
+            }
+        }
     }
 }
